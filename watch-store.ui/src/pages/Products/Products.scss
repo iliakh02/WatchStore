@@ -1,0 +1,28 @@
+@import "/src/_variables.scss";
+@import "/src/_mixins.scss";
+
+#main {
+    padding-bottom: 2.5rem;
+    flex: 1 0 auto;
+
+    .carousel {
+        width: 100%;
+        height: 25rem;
+        background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/top-20-watch-brands-lead-1617145581.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*);
+        background-size: cover;
+    }
+
+    .recommended-products {
+        padding: 0 0 2rem 0;
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        @include products-media(970px, 3);
+        @include products-media(687px, 2);
+        @include products-media(520px, 1);
+    }
+}

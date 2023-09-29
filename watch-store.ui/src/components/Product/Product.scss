@@ -1,0 +1,45 @@
+@import "/src/_variables.scss";
+@import "/src/_mixins.scss";
+
+.card {
+    max-width: 15rem;
+    min-width: 11rem;
+    max-height: 25rem;
+    background-color: $light-gray;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 13fr 8fr 1fr;
+
+    img {
+        max-width: 100%;
+        max-height: 15rem;
+        mix-blend-mode: multiply;
+        grid-area: 1 / 1 / 1 / span 2;
+        place-self: center;
+    }
+
+    .title {
+        font-size: 1.4rem;
+        grid-area: 2 / 1 / 2 / span 2;
+        margin: 7px 0px;
+    }
+
+    .price {
+        margin: auto 0;
+        font-size: 1.2rem;
+    }
+
+    .buy {
+        margin: auto 0 auto auto;
+        font-size: 24px;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        transition: 0.2s cubic-bezier(0.66, 1.05, 0.8, 0.98);
+    }
+}

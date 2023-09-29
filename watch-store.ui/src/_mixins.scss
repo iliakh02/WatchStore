@@ -1,0 +1,9 @@
+// Mixins:
+
+@mixin products-media($width, $columns-count) {
+    @media (max-width: $width) {
+        .products {
+            grid-template-columns: repeat($columns-count, 1fr);
+        }
+    }
+}

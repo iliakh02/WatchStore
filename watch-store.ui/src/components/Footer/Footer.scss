@@ -1,0 +1,18 @@
+@import "./../../variables";
+
+footer {
+    background-color: $dark-gray;
+}
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4.5rem;
+        color: white;
+    }
+}
