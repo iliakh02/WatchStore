@@ -7,8 +7,16 @@ builder.Services.AddTransient<IProductsService, ProductsService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
+
+app.UseCors((policy) =>
+{
+    policy.AllowAnyOrigin();
+});
+    
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
