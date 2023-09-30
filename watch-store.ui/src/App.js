@@ -23,7 +23,7 @@ function App() {
             </Route>
             <Route path="/cart" Component={Cart}>
             </Route>
-            <Route path="/products/1" Component={ProductDetails}>
+            <Route path="/products/:id" Component={ProductDetails} >
             </Route>
           </Routes>
         </BrowserRouter>
