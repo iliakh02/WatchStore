@@ -1,0 +1,26 @@
+version: '1.0'
+name: watch-shop
+services:
+  watch-store_api:
+    build:
+      context: ./WatchStore.API
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    networks: 
+      - WatchStore_network
+    
+  watch-store_ui:
+    build:
+      context: ./watch-store.ui
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - WatchStore_network
+
+networks:
+  WatchStore_network:
+    driver: bridge
+    
+

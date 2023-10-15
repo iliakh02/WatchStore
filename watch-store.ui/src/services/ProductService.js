@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ProductService {
     constructor() {
-        const domainUrl = "http://localhost:5277";
+        const domainUrl = "http://localhost:8080";
         this.baseUrl = `${domainUrl}/products`;
     }
 
