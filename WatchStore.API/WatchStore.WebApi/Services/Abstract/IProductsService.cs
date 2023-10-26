@@ -1,6 +1,6 @@
 using WatchStore.WebApi.Entities;
 
-namespace WatchStore.WebApi.Services;
+namespace WatchStore.WebApi.Services.Abstract;
 
 public interface IProductsService
 {

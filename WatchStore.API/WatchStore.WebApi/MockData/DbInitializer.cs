@@ -14,7 +14,17 @@ internal class DbInitializer
 
     public void Seed()
     {
+        SeedProducts();
+        SeedRoles();
+        SeedUsers();
+        SeedCarts();
+        SeedCustomers();
+    }
+
+    private void SeedProducts()
+    {
         _modelBuilder.Entity<Product>().HasData(
+            new List<Product> {
             new()
             {
                 Id = 1,
@@ -281,7 +291,69 @@ internal class DbInitializer
                 TotalAmount = 18,
                 Rating = 4.8m
             }
+            }
+        );
+    }
 
+    private void SeedRoles()
+    {
+        _modelBuilder.Entity<Role>().HasData(
+            new List<Role>
+            {
+                new() {
+                    Id = 1, Name = "Administrator"
+                }
+            }
+            );
+    }
+    
+    
+    private void SeedUsers()
+    {
+        _modelBuilder.Entity<User>().HasData(
+            new List<User>
+            {
+                new()
+                {
+                    Id = 1,
+                    Login = "admin",
+                    Password = "admin",
+                    RoleId = 1,
+                }
+            }
+        );
+    }
+    
+    private void SeedCarts()
+    {
+        _modelBuilder.Entity<Cart>().HasData(
+            new List<Cart>
+            {
+                new()
+                {
+                    Id = 1,
+                }
+            }
+        );
+    }
+        
+    private void SeedCustomers()
+    {
+        _modelBuilder.Entity<Customer>().HasData(
+            new List<Customer>
+            {
+                new()
+                {
+                    Id = 1,
+                    Name = "User",
+                    Surname = "Test",
+                    PhoneNumber = "",
+                    DeliveryAddress = "Test delivery address #112233",
+                    CartId = 1,
+                    Orders = null,
+
+                }
+            }
         );
     }
 }

@@ -18,4 +18,7 @@ public class Product
     public int TotalAmount { get; set; }
     [Required]
     public decimal Rating { get; set; }
+
+    public ICollection<CartItem> CartItems { get; set; }
+    public ICollection<OrderItem> OrderItems { get; set; }
 }

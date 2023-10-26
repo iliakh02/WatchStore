@@ -1,5 +1,6 @@
 using WatchStore.WebApi.Entities;
 using WatchStore.WebApi.Repositories.Abstract;
+using WatchStore.WebApi.Services.Abstract;
 
 namespace WatchStore.WebApi.Services;
 

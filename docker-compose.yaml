@@ -1,12 +1,25 @@
 version: '1.0'
 name: watch-shop
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server2022
+    environment:
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - WatchStore_network
+
   watch-store_api:
     build:
       context: ./WatchStore.API
       dockerfile: Dockerfile
     ports:
       - 8080:80
+    depends_on:
+      - sqlserver
     networks: 
       - WatchStore_network
     
@@ -16,6 +29,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
+    depends_on:
+      - sqlserver
+      - watch-store_api
     networks:
       - WatchStore_network
 

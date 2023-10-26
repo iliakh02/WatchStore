@@ -25,4 +25,8 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     public void Update(T entity) => _context.Set<T>().Update(entity);
 
     public void Delete(T entity) => _context.Set<T>().Remove(entity);
+    public void Save()
+    {
+        _context.SaveChanges();
+    }
 }

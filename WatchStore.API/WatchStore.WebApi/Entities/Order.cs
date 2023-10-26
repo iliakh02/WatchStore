@@ -9,5 +9,5 @@ public class Order
     public decimal TotalPrice { get; set; }
     public bool IsPaid { get; set; }
     public Customer Customer { get; set; }
-    public ICollection<CartItem> Products { get; set; }
+    public ICollection<OrderItem> OrderItems { get; set; }
 }

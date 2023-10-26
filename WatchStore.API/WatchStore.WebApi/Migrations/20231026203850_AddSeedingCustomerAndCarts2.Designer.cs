@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WatchStore.WebApi.Repositories;
 
@@ -10,9 +11,11 @@ using WatchStore.WebApi.Repositories;
 namespace WatchStore.WebApi.Migrations
 {
     [DbContext(typeof(WatchStoreDbContext))]
-    partial class WatchStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231026203850_AddSeedingCustomerAndCarts2")]
+    partial class AddSeedingCustomerAndCarts2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

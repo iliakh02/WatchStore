@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WatchStore.WebApi.Repositories;
 
@@ -10,9 +11,11 @@ using WatchStore.WebApi.Repositories;
 namespace WatchStore.WebApi.Migrations
 {
     [DbContext(typeof(WatchStoreDbContext))]
-    partial class WatchStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231026202459_AddOrderItemUpdateRelationsAndAddMoreSeedData")]
+    partial class AddOrderItemUpdateRelationsAndAddMoreSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,12 +35,6 @@ namespace WatchStore.WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Carts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1
-                        });
                 });
 
             modelBuilder.Entity("WatchStore.WebApi.Entities.CartItem", b =>
@@ -93,17 +90,6 @@ namespace WatchStore.WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CartId = 1,
-                            DeliveryAddress = "Test delivery address #112233",
-                            Name = "User",
-                            PhoneNumber = "",
-                            Surname = "Test"
-                        });
                 });
 
             modelBuilder.Entity("WatchStore.WebApi.Entities.Order", b =>
