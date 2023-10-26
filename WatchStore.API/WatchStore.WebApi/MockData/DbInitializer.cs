@@ -1,13 +1,20 @@
-using WatchStore.WebApi.Models;
+using Microsoft.EntityFrameworkCore;
+using WatchStore.WebApi.Entities;
 
-namespace WatchStore.WebApi.Data;
+namespace WatchStore.WebApi.MockData;
 
-public static class DataMocker
+internal class DbInitializer
 {
-    public static List<Product> GetProducts()
+    private readonly ModelBuilder _modelBuilder;
+
+    public DbInitializer(ModelBuilder modelBuilder)
     {
-        return new List<Product>
-        {
+        _modelBuilder = modelBuilder;
+    }
+
+    public void Seed()
+    {
+        _modelBuilder.Entity<Product>().HasData(
             new()
             {
                 Id = 1,
@@ -274,6 +281,7 @@ public static class DataMocker
                 TotalAmount = 18,
                 Rating = 4.8m
             }
-        };
+
+        );
     }
 }

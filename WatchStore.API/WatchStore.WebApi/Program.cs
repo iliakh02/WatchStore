@@ -1,8 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using WatchStore.WebApi.Repositories;
+using WatchStore.WebApi.Repositories.Abstract;
 using WatchStore.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("WatchStoreDbConnection");
+
+builder.Services.AddDbContext<WatchStoreDbContext>(options => 
+    options.UseSqlServer(connectionString));
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IProductsService, ProductsService>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

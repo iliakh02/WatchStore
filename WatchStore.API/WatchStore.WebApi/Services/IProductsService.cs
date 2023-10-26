@@ -1,4 +1,4 @@
-using WatchStore.WebApi.Models;
+using WatchStore.WebApi.Entities;
 
 namespace WatchStore.WebApi.Services;
 
